@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="calculator-name">
+            Simple Calculator
+        </h1>
+        <section class="view-calculations">
+            <input type="text" disabled id="number" value="">
+        </section>
+        <section class="type-buttonws">
+            <input type="button" value="C" data-action="clear" onclick="deleteOne()">
+            <input type="button" value="±" data-action="negate">
+            <input type="button" value="%" data-action="percent">
+            <input type="button" value="÷" data-action="divide">
+
+            <input type="button" value="7" data-number="7" onclick="displayText(this.value)">
+            <input type="button" value="8" data-number="8" onclick="displayText(this.value)">
+            <input type="button" value="9" data-number="9" onclick="displayText(this.value)">
+            <input type="button" value="*" data-action="multiply">
+
+            <input type="button" value="4" data-number="4">
+            <input type="button" value="5" data-number="5">
+            <input type="button" value="6" data-number="6">
+            <input type="button" value="-" data-action="subtract" onclick="displayText(this.value)">
+
+            <input type="button" value="1" data-number="1">
+            <input type="button" value="2" data-number="2">
+            <input type="button" value="3" data-number="3">
+            <input type="button" value="+" data-action="add" onclick="displayText(this.value)">
+
+            <input type="button" value="0" data-number="0">
+            <input type="button" value="." data-action="decimal">
+            <input type="button" value="=" data-action="equals" onclick="evaluateText()">
+            <input type="button" value="AC" data-action="all-clear" onclick="deleteAll()">
+            
+        </section>
+    </div>
+
+    <script>
+        let solution = document.getElementById("number").value
+        function displayText(value) {
+            solution = solution + value
+            document.getElementById("number").value=solution
+        }
+        function evaluateText() {
+            document.getElementById("number").value = eval(solution);
+        }
+        const deleteAll = () => {
+            let deleteCalculation = ""
+            solution = deleteCalculation
+            document.getElementById("number").value = solution
+        }
+        const deleteOne = () => {
+            solution = solution.slice(0, -1)
+            document.getElementById("number").value = solution
+        }
+    </script>
+</body>
+</html>
