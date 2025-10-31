@@ -1,0 +1,20 @@
+sind(30)
+
+
+.replace(/sing/)
+
+sin\(
+
+([^)]+)
+
+30, 45+15, 90\2
+
+\)
+g 
+
+'Math.sin($1)*Math.PI/180'
+
+before sin(30)   after Math.sin(30)*Math.PI/180
+
+sin(45+15)  Math.sin(45+15)*Math.PI/180
+
